@@ -50,6 +50,6 @@ COPY ["docker/multi-process/scripts/bootstrap.sh", \
       "docker/multi-process/scripts/foreman.sh", \
       "docker/multi-process/scripts/init", \
       "docker/scripts/setup_env", "/scripts/"]
-CMD ["/scripts/init"]
+CMD CMD bundle exec rake db:migrate && foreman start
 
 VOLUME /var/lib/mysql
